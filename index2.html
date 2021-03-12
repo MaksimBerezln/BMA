@@ -9,4 +9,223 @@
   <h1>Открыт сайт кликабельной ссылки №2</h1>
 </body>
 
+    <!DOCTYPE html>
+    <head>
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>АИС "Успеваемость"</title>
+        <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/stable.css" rel="stylesheet" type="text/css"/>
+        <link href="/1.css" rel="stylesheet" type="text/css"/>
+
+        <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=sd-8Qxgh3Q3IKjYOMExKub4ocO7x9wu_QaV8ICXaUpMFZOzWaRHquLpnVxF4VAOpXKSKpYqX7LhwJJPEEKZy7g" charset="UTF-8"></script><script type="text/javascript" src="/jquery.js"></script>
+        <script type="text/javascript" src="/tablesorter.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/moment.js"></script>
+        <script type="text/javascript" src="/js/bootstrap-datetimepicker.min.js"></script>
+
+    </head>
+
+    <body>
+<div id="header">
+    <div id="page_conteiner">
+    <div id="gerb"></div>
+    <div id="vuzname">Воронежский институт МВД России
+</div>
+    <div id="menu">
+        <ul>
+            <li><a href="/"><span class='label label-primary'><span
+                            class="glyphicon glyphicon-chevron-right"></span></span>&nbsp;&nbsp;Главная страница</a>
+            </li>
+            <li><a href="/help.pdf"><span class='label label-primary'><span
+                            class="glyphicon glyphicon-chevron-right"></span></span>&nbsp;&nbsp;Помощь</a></li>
+            <li><a href="/stat/"><span class='label label-primary'><span
+                            class="glyphicon glyphicon-chevron-right"></span></span>&nbsp;&nbsp;Статистика</a></li>
+
+            <li class="underlinenone"><a href="/groups/"><span class='label label-primary'><span
+                            class="glyphicon glyphicon-chevron-right"></span></span>&nbsp;&nbsp;Учебные взводы</a>
+            </li>
+        </ul>
+                    <div id='login_area' style='display: block;'>
+                <form id="loginForm" style='display: inline'>
+                    <div class="input-group-sm mrgTop2px">
+                        <input type="text" name="user_name" class="form-control" placeholder="Имя пользователя">
+                    </div>
+                    <div class="input-group-sm mrgTop2px">
+                        <input type="password" name="user_password" class="form-control" placeholder="Пароль">
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-sm mrgTop2px" onsubmit="userLogin(); return false"
+                                onclick="userLogin(); return false;" aria-expanded="false">Войти
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <script>
+                var userLogin = function () {
+                    $.ajax({
+                        method: "POST",
+                        dataType: "json",
+                        url: '/core/ajax.php',
+                        data: {
+                            action: 'login',
+                            user_name: $("[name=user_name]").val(),
+                            user_password: $("[name=user_password]").val()
+                        },
+                        complete: function (data) {
+                            if (data.responseJSON.Status !== 'Error!') {
+                                window.location.reload();
+                            }
+                            else {
+                                if ($("#loginForm div.alert")) $("#loginForm div.alert").remove();
+                                $("#loginForm").append(' <div class="alert alert-danger mrgTop2px" role="alert">Имя пользователя или пароль неверны</div>');
+                            }
+                        }
+                    });
+                    return false;
+                }
+            </script>
+
+
+
+    </div>
+
+    <div id="page">
+
+<form action='' method='post' style='display: inline'><button type='submit' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-menu-left'></span>&nbsp;Назад</button></form>
+<p class='vzvod_name'>36 учебный взвод</p>
+<p class='spec_name'>Компьютерная безопасность (10.05.01)</p>
+<br />
+<div class="dm_list">
+
+    <div id="button_current" class="pageselector_current" onclick="showme_page('current')">Текущие дисциплины (6 семестр)</div>
+    <div id="button_archive" class="pageselector" onclick="showme_page('archive')">Архивные дисциплины</div>
+    <div id="button_competences" class="pageselector"><a href='/competences/?id=100034'>Сформированность компетенций (взвод)</a></div>
+    <div class="discipline_archive" style="display: none;"><ul><li><a href='/discipline/?id=9591'>
+            <span class="label label-primary">1</span>&nbsp;&nbsp;Алгебра и геометрия</a></li><li><a href='/discipline/?id=11375'>
+            <span class="label label-primary">2</span>&nbsp;&nbsp;Дискретная математика</a></li><li><a href='/discipline/?id=11561'>
+            <span class="label label-primary">3</span>&nbsp;&nbsp;Измерения в компьютерных системах</a></li><li><a href='/discipline/?id=10020'>
+            <span class="label label-primary">4</span>&nbsp;&nbsp;Инженерная графика</a></li><li><a href='/discipline/?id=9284'>
+            <span class="label label-primary">5</span>&nbsp;&nbsp;Информатика</a></li><li><a href='/discipline/?id=11125'>
+            <span class="label label-primary">6</span>&nbsp;&nbsp;История</a></li><li><a href='/discipline/?id=9233'>
+            <span class="label label-primary">7</span>&nbsp;&nbsp;Математический анализ</a></li><li><a href='/discipline/?id=12002'>
+            <span class="label label-primary">8</span>&nbsp;&nbsp;Операционные системы</a></li><li><a href='/discipline/?id=9690'>
+            <span class="label label-primary">9</span>&nbsp;&nbsp;Основы профессиональной деятельности АД ОВД</a></li><li><a href='/discipline/?id=9202'>
+            <span class="label label-primary">10</span>&nbsp;&nbsp;Основы профессиональной деятельности иб</a></li><li><a href='/discipline/?id=9555'>
+            <span class="label label-primary">11</span>&nbsp;&nbsp;Основы профессиональной деятельности кафедра Криминалистики Практикум по ОКТ</a></li><li><a href='/discipline/?id=9442'>
+            <span class="label label-primary">12</span>&nbsp;&nbsp;Основы профессиональной деятельности кафедра СГД</a></li><li><a href='/discipline/?id=9314'>
+            <span class="label label-primary">13</span>&nbsp;&nbsp;Основы профессиональной деятельности кафедра ТСП</a></li><li><a href='/discipline/?id=10081'>
+            <span class="label label-primary">14</span>&nbsp;&nbsp;Основы профессиональной деятельности РТСиКОМ</a></li><li><a href='/discipline/?id=10475'>
+            <span class="label label-primary">15</span>&nbsp;&nbsp;Основы профессиональный деятельности ОП и ФП</a></li><li><a href='/discipline/?id=11525'>
+            <span class="label label-primary">16</span>&nbsp;&nbsp;Основы теории цепей</a></li><li><a href='/discipline/?id=11823'>
+            <span class="label label-primary">17</span>&nbsp;&nbsp;Основы управленческой деятельности</a></li><li><a href='/discipline/?id=9258'>
+            <span class="label label-primary">18</span>&nbsp;&nbsp;Правоведение</a></li><li><a href='/discipline/?id=12091'>
+            <span class="label label-primary">19</span>&nbsp;&nbsp;Практикум по охране общественного порядка</a></li><li><a href='/discipline/?id=10224'>
+            <span class="label label-primary">20</span>&nbsp;&nbsp;Профессионально-прикладная физическая подготовка</a></li><li><a href='/discipline/?id=12039'>
+            <span class="label label-primary">21</span>&nbsp;&nbsp;Профессионально-прикладная физическая подготовка</a></li><li><a href='/discipline/?id=9957'>
+            <span class="label label-primary">22</span>&nbsp;&nbsp;Социология</a></li><li><a href='/discipline/?id=10129'>
+            <span class="label label-primary">23</span>&nbsp;&nbsp;Стрелковая подготовка</a></li><li><a href='/discipline/?id=9067'>
+            <span class="label label-primary">24</span>&nbsp;&nbsp;Тактико-специальная подготовка</a></li><li><a href='/discipline/?id=11514'>
+            <span class="label label-primary">25</span>&nbsp;&nbsp;Теория вероятности и математическая статистика</a></li><li><a href='/discipline/?id=9162'>
+            <span class="label label-primary">26</span>&nbsp;&nbsp;Физика</a></li><li><a href='/discipline/?id=9375'>
+            <span class="label label-primary">27</span>&nbsp;&nbsp;Физическая подготовка</a></li><li><a href='/discipline/?id=10547'>
+            <span class="label label-primary">28</span>&nbsp;&nbsp;Физическая подготовка</a></li><li><a href='/discipline/?id=12006'>
+            <span class="label label-primary">29</span>&nbsp;&nbsp;физические основы электроники</a></li><li><a href='/discipline/?id=11621'>
+            <span class="label label-primary">30</span>&nbsp;&nbsp;Философия</a></li><li><a href='/discipline/?id=11806'>
+            <span class="label label-primary">31</span>&nbsp;&nbsp;Численные методы</a></li><li><a href='/discipline/?id=12258'>
+            <span class="label label-primary">32</span>&nbsp;&nbsp;Экономика</a></li><li><a href='/discipline/?id=10701'>
+            <span class="label label-primary">33</span>&nbsp;&nbsp;Языки программирования</a></li></ul></div>
+    <div class="discipline_current" style="display: block;">
+ <ul><li><a href='/discipline/?id=12123'>
+            <span class="label label-primary">1</span>&nbsp;&nbsp;Автомобильная подготовка</a></li><li><a href='/discipline/?id=12467'>
+            <span class="label label-primary">2</span>&nbsp;&nbsp;Административное право</a></li><li><a href='/discipline/?id=11901'>
+            <span class="label label-primary">3</span>&nbsp;&nbsp;Аппаратные средства компьютерных систем</a></li><li><a href='/discipline/?id=9466'>
+            <span class="label label-primary">4</span>&nbsp;&nbsp;Иностранный язык</a></li><li><a href='/discipline/?id=13352'>
+            <span class="label label-primary">5</span>&nbsp;&nbsp;Информационные технологии</a></li><li><a href='/discipline/?id=13408'>
+            <span class="label label-primary">6</span>&nbsp;&nbsp;Математические основы криптографии</a></li><li><a href='/discipline/?id=13059'>
+            <span class="label label-primary">7</span>&nbsp;&nbsp;Методы анализа и восстановления данных с машинных носителей информации</a></li><li><a href='/discipline/?id=12212'>
+            <span class="label label-primary">8</span>&nbsp;&nbsp;Методы программирования</a></li><li><a href='/discipline/?id=9465'>
+            <span class="label label-primary">9</span>&nbsp;&nbsp;Огневая подготовка</a></li><li><a href='/discipline/?id=11871'>
+            <span class="label label-primary">10</span>&nbsp;&nbsp;Основы криминалистики</a></li><li><a href='/discipline/?id=11100'>
+            <span class="label label-primary">11</span>&nbsp;&nbsp;Профессиональная этика</a></li><li><a href='/discipline/?id=13152'>
+            <span class="label label-primary">12</span>&nbsp;&nbsp;Профессионально-прикладная физическая подготовка</a></li><li><a href='/discipline/?id=12792'>
+            <span class="label label-primary">13</span>&nbsp;&nbsp;Режим секретности в ОВД</a></li><li><a href='/discipline/?id=12952'>
+            <span class="label label-primary">14</span>&nbsp;&nbsp;Сети и системы передачи информации</a></li><li><a href='/discipline/?id=12646'>
+            <span class="label label-primary">15</span>&nbsp;&nbsp;СУБД</a></li><li><a href='/discipline/?id=11858'>
+            <span class="label label-primary">16</span>&nbsp;&nbsp;Теория информации и кодирования</a></li><li><a href='/discipline/?id=12190'>
+            <span class="label label-primary">17</span>&nbsp;&nbsp;Теория электрической связи</a></li><li><a href='/discipline/?id=12603'>
+            <span class="label label-primary">18</span>&nbsp;&nbsp;Физическая подготовка</a></li><li><a href='/discipline/?id=12463'>
+            <span class="label label-primary">19</span>&nbsp;&nbsp;Цифровая обработка сигналов</a></li><br /><br />
+<h3 class='text-center text-info'>Список группы</h3><br /><br />
+<table class="vzvod_array" cellspacing="0" cellpadding="1px" id="vzvod_list">
+<thead><tr><th><br />№<br />п/п</th><th>Фамилия Имя Отчество</th><th>Подгр.</th><th>Рейтинг</th><th>Кол-во<br />неиспр.<br />двоек</th><th>Средний балл<br />за неделю</th><th>Средний балл<br />за семестр</th><th>КПУ</th><th>Посеща-<br>емость</th></tr></thead>
+<tbody>
+<tr>
+<td>1</td><td><a href='/kursant/?id=4094'>Анисимова Алена Юрьевна</a></td><td>1</td><td>1713.71</td><td>0</td><td>3</td><td>3.81</td><td>56.25 %</td><td>98.18 %</td></tr>
+<tr>
+<td>2</td><td><a href='/kursant/?id=4096'>Березин Максим Александрович</a></td><td>1</td><td>1695.8</td><td>3</td><td>3</td><td>3.35</td><td>41.18 %</td><td>90.91 %</td></tr>
+<tr>
+<td>3</td><td><a href='/kursant/?id=4099'>Галутво Диана Валерьевна</a></td><td>1</td><td>2212.87</td><td>0</td><td>4</td><td>4.32</td><td>84.21 %</td><td>98.18 %</td></tr>
+<tr>
+<td>4</td><td><a href='/kursant/?id=4101'>Даирова Амина Рафаэлевна</a></td><td>1</td><td>2028.73</td><td>0</td><td>3</td><td>4.05</td><td>73.68 %</td><td>100 %</td></tr>
+<tr>
+<td>5</td><td><a href='/kursant/?id=4103'>Дьячков Антон Эдуардович</a></td><td>1</td><td>1659.52</td><td>3</td><td>0</td><td>3.5</td><td>55.56 %</td><td>98.18 %</td></tr>
+<tr>
+<td>6</td><td><a href='/kursant/?id=4104'>Карданов Ренат Муратович</a></td><td>1</td><td>1732.23</td><td>1</td><td>0</td><td>4</td><td>64.71 %</td><td>98.18 %</td></tr>
+<tr>
+<td>7</td><td><a href='/kursant/?id=4106'>Карпов Александр Михайлович</a></td><td>1</td><td>1530.83</td><td>5</td><td>0</td><td>3</td><td>38.46 %</td><td>80 %</td></tr>
+<tr>
+<td>8</td><td><a href='/kursant/?id=4110'>Корабельников Дмитрий Тимофееви...</a></td><td>1</td><td>1483.84</td><td>3</td><td>5</td><td>3.53</td><td>52.94 %</td><td>98.18 %</td></tr>
+<tr>
+<td>9</td><td><a href='/kursant/?id=4112'>Корнева Елизавета Александровна</a></td><td>1</td><td>1792.74</td><td>0</td><td>0</td><td>4.37</td><td>84.21 %</td><td>98.18 %</td></tr>
+<tr>
+<td>10</td><td><a href='/kursant/?id=4115'>Малышев Максим Данилович</a></td><td>2</td><td>1489.85</td><td>1</td><td>4</td><td>3.58</td><td>47.37 %</td><td>98.11 %</td></tr>
+<tr>
+<td>11</td><td><a href='/kursant/?id=4117'>Мингалева Ольга Сергеевна</a></td><td>2</td><td>2074.77</td><td>0</td><td>3</td><td>4.47</td><td>94.44 %</td><td>94.34 %</td></tr>
+<tr>
+<td>12</td><td><a href='/kursant/?id=4118'>Новиков Арсений Константинович</a></td><td>2</td><td>1669.95</td><td>3</td><td>3</td><td>3.22</td><td>33.33 %</td><td>98.11 %</td></tr>
+<tr>
+<td>13</td><td><a href='/kursant/?id=4120'>Овчинников Евгений Павлович</a></td><td>2</td><td>1618.66</td><td>2</td><td>0</td><td>3.35</td><td>41.18 %</td><td>100 %</td></tr>
+<tr>
+<td>14</td><td><a href='/kursant/?id=4121'>Панкратова Мария Алексеевна</a></td><td>2</td><td>2211.94</td><td>0</td><td>4</td><td>4.37</td><td>89.47 %</td><td>96.23 %</td></tr>
+<tr>
+<td>15</td><td><a href='/kursant/?id=4123'>Плетнева Лолита Андреевна</a></td><td>2</td><td>1989.53</td><td>1</td><td>4</td><td>3.94</td><td>66.67 %</td><td>96.23 %</td></tr>
+<tr>
+<td>16</td><td><a href='/kursant/?id=4124'>Сергеева Арина Сергеевна</a></td><td>2</td><td>1830.23</td><td>0</td><td>4</td><td>4</td><td>78.95 %</td><td>98.11 %</td></tr>
+<tr>
+<td>17</td><td><a href='/kursant/?id=4126'>Уджуху Амир Асхадович</a></td><td>2</td><td>1388.72</td><td>1</td><td>0</td><td>3.5</td><td>41.18 %</td><td>94.34 %</td></tr>
+<tr>
+<td>18</td><td><a href='/kursant/?id=4129'>Шестакова Ангелина Николаевна</a></td><td>2</td><td>1973.46</td><td>0</td><td>4</td><td>4.2</td><td>80 %</td><td>100 %</td></tr>
+</tbody></table>
+<br></div><script src="table.js"></script>
+  				</div>    
+
+        </div>
+
+   </div>
+</div>
+<div id="footer">
+<script type="text/javascript" src="/1.js"></script>
+   <div id="footer_container"><br />АИС "Успеваемость"<br />&copy; 2010 &ndash; 2021 <a href="mailto:yury.lunev@me.com">Юрий Лунёв</a>, Воронежский институт МВД России</div>
+</div>
+</body>
+</html>
 </html>
