@@ -1,7 +1,7 @@
-let a = prompt('Каково «официальное» название JavaScript?')
-if(a=='ECMAScript'){
-  alert('Верно!');
+let a = prompt('Введите официальное название JavaScript','');
+if(a=='ESMAscript'){
+  alert('Верно');
 }
 else{
-  alert('Не знаете? ECMAScript!');
+  alert('Не знаете? ESMAscript!');
 }
