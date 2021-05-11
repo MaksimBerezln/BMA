@@ -1,11 +1,10 @@
-let value = prompt('Введите любое целое число')
-if(value >= 1){
+let a = prompt('Введите любое целое число', '')
+if(a >= 1){
   alert('Положительное')
 }
-else
- if (value <= 1){
+else if (a <= 1){
   alert('Отрицательное')
 }
-else  (value == 0){
+else if  (a == 0){
   alert('Нуль')
 }
